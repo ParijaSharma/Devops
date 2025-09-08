@@ -30,62 +30,62 @@
 
 * User Management
 Create users:
-        sudo useradd -m neha
-        sudo useradd -m vipul
-        sudo useradd -m abhishek
-        sudo useradd -m nikhil
-        sudo useradd -m priyashigv
+            sudo useradd -m neha
+            sudo useradd -m vipul
+            sudo useradd -m abhishek
+            sudo useradd -m nikhil
+            sudo useradd -m priyashigv
 Modify users:
 1. Change primary group of neha and abhishek → sigma
-        sudo usermod -g sigma neha
-        id neha
-        uid=1007(neha) gid=1012(sigma) groups=1012(sigma)
-        
-        sudo usermod -g sigma abhishek
-        id abhishek
-        uid=1009(abhishek) gid=1012(sigma) groups=1012(sigma)
-        
+            sudo usermod -g sigma neha
+            id neha
+            uid=1007(neha) gid=1012(sigma) groups=1012(sigma)
+            
+            sudo usermod -g sigma abhishek
+            id abhishek
+            uid=1009(abhishek) gid=1012(sigma) groups=1012(sigma)
+            
     Add secondary group linux to neha and abhishek
-        sudo usermod -aG linux neha
-        id neha
-        uid=1007(neha) gid=1012(sigma) groups=1012(sigma),1015(linux)
-        sudo usermod -aG linux abhishek
-        id abhishek
-        uid=1009(abhishek) gid=1012(sigma) groups=1012(sigma),1015(linux)
+            sudo usermod -aG linux neha
+            id neha
+            uid=1007(neha) gid=1012(sigma) groups=1012(sigma),1015(linux)
+            sudo usermod -aG linux abhishek
+            id abhishek
+            uid=1009(abhishek) gid=1012(sigma) groups=1012(sigma),1015(linux)
 
     Add nikhil and priyashi to groups linux and alpha in single command
-        sudo usermod -aG linux,alpha nikhil
-        id nikhil
-        uid=1011(nikhil) gid=1007(nikhil) groups=1007(nikhil),1010(alpha),1015(linux)
-        sudo usermod -aG linux,alpha priyanshi
-        id priyanshi
-        uid=1010(priyanshi) gid=1014(priyanshi) groups=1014(priyanshi),1010(alpha),1015(linux)
-        
+            sudo usermod -aG linux,alpha nikhil
+            id nikhil
+            uid=1011(nikhil) gid=1007(nikhil) groups=1007(nikhil),1010(alpha),1015(linux)
+            sudo usermod -aG linux,alpha priyanshi
+            id priyanshi
+            uid=1010(priyanshi) gid=1014(priyanshi) groups=1014(priyanshi),1010(alpha),1015(linux)
+            
     Change shell of vipul to make it service user
-        sudo chsh -s /sbin/nologin vipul
-        grep vipul /etc/passwd
-        vipul:x:1008:1008::/home/vipul:/sbin/nologin
+            sudo chsh -s /sbin/nologin vipul
+            grep vipul /etc/passwd
+            vipul:x:1008:1008::/home/vipul:/sbin/nologin
 
     force abhishek to reset password on next login
-         sudo -i
-        [sudo] password for parija: 
-        root@parisUbuntu:~# passwd -e abhishek
-        passwd: password changed.
-        root@parisUbuntu:~# exit
-        logout
+             sudo -i
+            [sudo] password for parija: 
+            root@parisUbuntu:~# passwd -e abhishek
+            passwd: password changed.
+            root@parisUbuntu:~# exit
+            logout
 
 2. Group Management:
     create groups: linux sigma alpha
     Delete groups:
     linux
 
-        sudo groupadd linux
-        groupadd: group 'linux' already exists
-        parija@parisUbuntu:~$ sudo groupadd sigma
-        groupadd: group 'sigma' already exists
-        parija@parisUbuntu:~$ sudo groupadd alpha
-        groupadd: group 'alpha' already exists
-        parija@parisUbuntu:~$ sudo groupdel linux
+            sudo groupadd linux
+            groupadd: group 'linux' already exists
+            parija@parisUbuntu:~$ sudo groupadd sigma
+            groupadd: group 'sigma' already exists
+            parija@parisUbuntu:~$ sudo groupadd alpha
+            groupadd: group 'alpha' already exists
+            parija@parisUbuntu:~$ sudo groupdel linux
         
 3. Permissions & Directory Setup
 
@@ -94,20 +94,20 @@ Change home directory permissions:
 User: rwx
 Team members (same group): r-x
 Others: --x
-        parija@parisUbuntu:~$ sudo groupdel linux
-        parija@parisUbuntu:~$ sudo chmod 751 /home/neha
-        parija@parisUbuntu:~$ sudo chmod 751 /home/vipul
-        parija@parisUbuntu:~$ sudo chmod 751 /home/abhishek
-        parija@parisUbuntu:~$ sudo chmod 751 /home/priyanshi
-        parija@parisUbuntu:~$ sudo chmod 751 /home/nikhil
+            parija@parisUbuntu:~$ sudo groupdel linux
+            parija@parisUbuntu:~$ sudo chmod 751 /home/neha
+            parija@parisUbuntu:~$ sudo chmod 751 /home/vipul
+            parija@parisUbuntu:~$ sudo chmod 751 /home/abhishek
+            parija@parisUbuntu:~$ sudo chmod 751 /home/priyanshi
+            parija@parisUbuntu:~$ sudo chmod 751 /home/nikhil
 
 Create directory structure inside each user’s home:
-        sudo mkdir -p /home/neha/team 
-        parija@parisUbuntu:~$ sudo mkdir -p /home/neha/linux
-        parija@parisUbuntu:~$ sudo mkdir -p /home/abhishek/team /home/abhishek/linux 
-        parija@parisUbuntu:~$ sudo mkdir -p /home/vipul/team /home/vipul/linux
-        parija@parisUbuntu:~$ sudo mkdir -p /home/priyanshi/team /home/priyanshi/linux
-        parija@parisUbuntu:~$ sudo mkdir -p /home/nikhil/team /home/nikhil/linux 
+            sudo mkdir -p /home/neha/team 
+            parija@parisUbuntu:~$ sudo mkdir -p /home/neha/linux
+            parija@parisUbuntu:~$ sudo mkdir -p /home/abhishek/team /home/abhishek/linux 
+            parija@parisUbuntu:~$ sudo mkdir -p /home/vipul/team /home/vipul/linux
+            parija@parisUbuntu:~$ sudo mkdir -p /home/priyanshi/team /home/priyanshi/linux
+            parija@parisUbuntu:~$ sudo mkdir -p /home/nikhil/team /home/nikhil/linux 
         
 Set directory permissions:
 team: only team members → full access
@@ -153,24 +153,24 @@ linux: only linux trainer → full access
 4. Verification Tasks
 
     Check if alpha team user can access sigma team directory
-            sudo -u priyanshi ls /home/neha/team
-        ls: cannot open directory '/home/neha/team': Permission denied
+           sudo -u priyanshi ls /home/neha/team
+           ls: cannot open directory '/home/neha/team': Permission denied
     
     Check if vipul can access sigma directory
-        sudo -u vipul ls /home/abhishek/team
-        ls: cannot open directory '/home/abhishek/team': Permission denied
+            sudo -u vipul ls /home/abhishek/team
+            ls: cannot open directory '/home/abhishek/team': Permission denied
 
     List all created users and groups
-        id -a  neha vipul abhishek priyanshi nikhil
-        uid=1007(neha) gid=1012(sigma) groups=1012(sigma)
-        uid=1008(vipul) gid=1008(vipul) groups=1008(vipul),1015(linux)
-        uid=1009(abhishek) gid=1012(sigma) groups=1012(sigma)
-        uid=1010(priyanshi) gid=1014(priyanshi) groups=1014(priyanshi),1010(alpha)
-        uid=1011(nikhil) gid=1007(nikhil) groups=1007(nikhil),1010(alpha)
-        
+            id -a  neha vipul abhishek priyanshi nikhil
+            uid=1007(neha) gid=1012(sigma) groups=1012(sigma)
+            uid=1008(vipul) gid=1008(vipul) groups=1008(vipul),1015(linux)
+            uid=1009(abhishek) gid=1012(sigma) groups=1012(sigma)
+            uid=1010(priyanshi) gid=1014(priyanshi) groups=1014(priyanshi),1010(alpha)
+            uid=1011(nikhil) gid=1007(nikhil) groups=1007(nikhil),1010(alpha)
+            
     Check which shell is assigned to neha
-        parija@parisUbuntu:~$ grep "neha" /etc/passwd
-        neha:x:1007:1012::/home/neha:/bin/sh
+            parija@parisUbuntu:~$ grep "neha" /etc/passwd
+            neha:x:1007:1012::/home/neha:/bin/sh
 
     Check default permissions (umask) for new files and directories, and how to change it
 #The umask command in Linux is used to set default permissions for files or directories the user creates.
