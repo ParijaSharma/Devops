@@ -3,43 +3,43 @@
         os store and manage data on disk or partitions using a structure called FileSystem
         FileSystem inludes files directories and related permissions
         
-                   / (root directory)
-                   |
-   -------------------------------------------------
-   |       |        |        |       |       |     |
- /bin    /boot    /dev     /etc    /home   /lib   /media
-   |                |        |       |       |
-   |                |        |       |       |----> Removable media
-   |                |        |       |              (USB, CD-ROM)
-   |                |        |       |
-   |                |        |       |----> User directories
-   |                |        |              (/home/user1, /home/user2)
-   |                |        |
-   |                |        |----> Configuration files
-   |                |
-   |                |----> Kernel & boot loader files
-   |
-   -------------------------------------------------
-   |       |         |         |         |         |
- /mnt    /opt     /proc     /root     /run     /sbin
-   |                 |         |         |         |
-   |----> Mount pts  |         |         |----> System binaries
-                     |         |
-                     |         |----> Root user home
-                     |
-                     |----> Kernel & process info
-   -------------------------------------------------
-   |        |          |           |
- /srv     /sys       /tmp        /usr
-             |                     |
-             |                     |----> User binaries, docs, libraries
-             |
-             |----> System devices info
-   -------------------------------------------------
-               |
-             /var
-               |
-               |----> Logs, spool files, mail, etc.
+                                       / (root directory)
+                                       |
+                       -------------------------------------------------
+                       |       |        |        |       |       |     |
+                     /bin    /boot    /dev     /etc    /home   /lib   /media
+                       |                |        |       |       |
+                       |                |        |       |       |----> Removable media
+                       |                |        |       |              (USB, CD-ROM)
+                       |                |        |       |
+                       |                |        |       |----> User directories
+                       |                |        |              (/home/user1, /home/user2)
+                       |                |        |
+                       |                |        |----> Configuration files
+                       |                |
+                       |                |----> Kernel & boot loader files
+                       |
+                       -------------------------------------------------
+                       |       |         |         |         |         |
+                     /mnt    /opt     /proc     /root     /run     /sbin
+                       |                 |         |         |         |
+                       |----> Mount pts  |         |         |----> System binaries
+                                         |         |
+                                         |         |----> Root user home
+                                         |
+                                         |----> Kernel & process info
+                       -------------------------------------------------
+                       |        |          |           |
+                     /srv     /sys       /tmp        /usr
+                                 |                     |
+                                 |                     |----> User binaries, docs, libraries
+                                 |
+                                 |----> System devices info
+                       -------------------------------------------------
+                                   |
+                                 /var
+                                   |
+                                   |----> Logs, spool files, mail, etc.
 
 # types of file system 
         . ext3
