@@ -1,153 +1,153 @@
 ###SHELL SCRIPTING
-* use :
-imagine you have written commands for a server configuration and you want that to be copied for making 10 more servers then executing every command in terminal one by one  will take lot of time so that is why shell scripting is used#!/bin/bash as we can make a file of commands which will be interpreted together .
+        * use :
+        imagine you have written commands for a server configuration and you want that to be copied for making 10 more servers then executing every command in terminal one by one  will take lot of time so that is why shell scripting is used#!/bin/bash as we can make a file of commands which will be interpreted together .
 
-- it avoids repetitive work
-- can share the instructions
-- .sh is the extension
-- file is movable
+        - it avoids repetitive work
+        - can share the instructions
+        - .sh is the extension
+        - file is movable
 
 # shell - it is a program that interprets and executes various commands that we type in the terminal
 
--> Shebang line to start the fie with is : `#!/bin/bash`
-example:
-vim setup.sh
-[this will open us a file]
-[inside file write:]
-#!/bin/bash
-echo "hello world"
-[ctrl+X for exit and the save ]
-[the run the file]
-./setup.sh
-[will give error permission denied]
-[give executable permissions]
-sudo chmod u+x setup.sh
-[then run the file]
-./setup.sh    or {bash setup.sh}
-[output]
-hello world
+        -> Shebang line to start the fie with is : `#!/bin/bash`
+        example:
+        vim setup.sh
+        [this will open us a file]
+        [inside file write:]
+        #!/bin/bash
+        echo "hello world"
+        [ctrl+X for exit and the save ]
+        [the run the file]
+        ./setup.sh
+        [will give error permission denied]
+        [give executable permissions]
+        sudo chmod u+x setup.sh
+        [then run the file]
+        ./setup.sh    or {bash setup.sh}
+        [output]
+        hello world
 
 #Variables:
-used to store data and can be referenced later
+        used to store data and can be referenced later
 
-num="1"
-name="Devil"
-These kinds of variables are scalar variables as they could hold one value at a time. 
+        num="1"
+        name="Devil"
+        These kinds of variables are scalar variables as they could hold one value at a time. 
 
-1) accessing Variables:
-Variable data could be accessed by appending the variable name with '$' as 
-- variable_name=$(command) 
+        1) accessing Variables:
+        Variable data could be accessed by appending the variable name with '$' as 
+        - variable_name=$(command) 
 
-*example
-#!/bin/bash
-VAR_1="Devil"
-VAR_2="OWL"
-echo "$VAR_1$VAR_2"
+        *example
+        #!/bin/bash
+        VAR_1="Devil"
+        VAR_2="OWL"
+        echo "$VAR_1$VAR_2"
 
 
 
-2) Unsetting Variables:
-The unset command directs a shell to delete a variable and its stored data from list of variables. 
-#!/bin/bash
-var1="Devil"
-var2=23
-echo $var1 $var2
-unset var1
-echo $var1 $var2
+        2) Unsetting Variables:
+        The unset command directs a shell to delete a variable and its stored data from list of variables. 
+        #!/bin/bash
+        var1="Devil"
+        var2=23
+        echo $var1 $var2
+        unset var1
+        echo $var1 $var2
 
-Output:
-DEVIL 23
-23
+        Output:
+        DEVIL 23
+        23
 
-3) Read only Variables.
-These variables are read only i.e., their values could not be modified later in the script. 
+        3) Read only Variables.
+        These variables are read only i.e., their values could not be modified later in the script. 
 
-exapmle:
-#!/bin/bash
-var1="Devil"
-var2=23
-readonly var1
-echo $var1 $var2
-var1=23
-echo $var1 $var2
+        exapmle:
+        #!/bin/bash
+        var1="Devil"
+        var2=23
+        readonly var1
+        echo $var1 $var2
+        var1=23
+        echo $var1 $var2
 
-Output:
+        Output:
 
-Devil 23
-./bash1: line 8: var1: readonly variable
-Devil 23
+        Devil 23
+        ./bash1: line 8: var1: readonly variable
+        Devil 23
 
-#Variables Types:
-1) Local Variable:
+        #Variables Types:
+        1) Local Variable:
 
-variable which are specific to the current instance of shell. They are basically used within the shell, but not available for the program or other shells that are started from within the current shell. 
+        variable which are specific to the current instance of shell. They are basically used within the shell, but not available for the program or other shells that are started from within the current shell. 
 
-2) Environment Variable:
+        2) Environment Variable:
 
-These variables are commonly used to configure the behavior script and programs that are run by shell. Environment variables are only created once, after which they can be used by any user.
-or example:
+        These variables are commonly used to configure the behavior script and programs that are run by shell. Environment variables are only created once, after which they can be used by any user.
+        or example:
 
-`export PATH=/usr/local/bin:$PATH` would add `/usr/local/bin` to the beginning of the shell's search path for executable programs.
+        `export PATH=/usr/local/bin:$PATH` would add `/usr/local/bin` to the beginning of the shell's search path for executable programs.
 
-3) Shell Variables:
-Variables that are set by shell itself and help shell to work with functions correctly. It contains both, which means it has both, some variables are Environment variable, and some are Local Variables.
--example:
-`$PWD` = Stores working directory 
-`$HOME` = Stores user's home directory
+        3) Shell Variables:
+        Variables that are set by shell itself and help shell to work with functions correctly. It contains both, which means it has both, some variables are Environment variable, and some are Local Variables.
+        -example:
+        `$PWD` = Stores working directory 
+        `$HOME` = Stores user's home directory
 
-#How to Store User Data in a Variable?
+###How to Store User Data in a Variable?
 
-#!/bin/bash
-  echo "Enter the length of the rectangle"
-  read length
-  echo "Enter the width of the rectangle"
-  read width
-  area=$((length * width))
-  echo "The are of the rectangle is: $area"
+         #!/bin/bash
+          echo "Enter the length of the rectangle"
+          read length
+          echo "Enter the width of the rectangle"
+          read width
+          area=$((length * width))
+          echo "The are of the rectangle is: $area"
   
-# if-else conditions 
-allows you to alter the flow of program 
-- executes commands only when condition is fulfilled
-if[condition]
-then [command]
-else
-[command]
-fi
-[end]
+### if-else conditions 
+        allows you to alter the flow of program 
+        - executes commands only when condition is fulfilled
+        if[condition]
+        then [command]
+        else
+        [command]
+        fi
+        [end]
 
-#There are 5 basic operators in bash/shell scripting:
+###There are 5 basic operators in bash/shell scripting:
 
-   > Arithmetic Operators->
-    + → Addition
-    - → Subtraction
-    * → Multiplication
-    / → Division
-    % → Modulus (remainder)
-    ** → Exponentiation
+           > Arithmetic Operators->
+            + → Addition
+            - → Subtraction
+            * → Multiplication
+            / → Division
+            % → Modulus (remainder)
+            ** → Exponentiation
     
     
-   > Relational Operators ->
-    works only for numeric values 
-    will work to check relation between 10 and 20 as well as between "10" and "20"
-    -eq → Equal to ([ "$a" -eq "$b" ])
-    -ne → Not equal to
-    -gt → Greater than
-    -lt → Less than
-    -ge → Greater than or equal to
-    -le → Less than or equal to
-    
-    
-   > String Operators
+           > Relational Operators ->
+            works only for numeric values 
+            will work to check relation between 10 and 20 as well as between "10" and "20"
+            -eq → Equal to ([ "$a" -eq "$b" ])
+            -ne → Not equal to
+            -gt → Greater than
+            -lt → Less than
+            -ge → Greater than or equal to
+            -le → Less than or equal to
+            
+            
+           > String Operators
 
-    = → Strings are equal ([ "$a" = "$b" ])
-    != → Strings are not equal
-    < → String1 is less than String2 (ASCII order, needs [[ ]])
-    > → String1 is greater than String2 (ASCII order, needs [[ ]])
-    -z string → String is null (empty)
-    -n string → String is not null
+            = → Strings are equal ([ "$a" = "$b" ])
+            != → Strings are not equal
+            < → String1 is less than String2 (ASCII order, needs [[ ]])
+            > → String1 is greater than String2 (ASCII order, needs [[ ]])
+            -z string → String is null (empty)
+            -n string → String is not null
     
     
-   >File Test Operators
+        >File Test Operators
 
         Used to test file types and permissions:
         -e file → File exists
@@ -162,199 +162,192 @@ fi
         file1 -ot file2 → file1 is older than file2
     
     
- >Logical Operators
+         >Logical Operators
 
-    ! expr → NOT
-    expr1 -a expr2 → AND (works in [ ], but prefer &&)
-    expr1 -o expr2 → OR (works in [ ], but prefer ||)
-    && → AND (used in [[ ]] or directly in shell)
-    || → OR
+            ! expr → NOT
+            expr1 -a expr2 → AND (works in [ ], but prefer &&)
+            expr1 -o expr2 → OR (works in [ ], but prefer ||)
+            && → AND (used in [[ ]] or directly in shell)
+            || → OR
         
    
- >Bitwise Operators
-     & → Bitwise AND
-    | → Bitwise OR
-    ^ → Bitwise XOR
-    ~ → Bitwise NOT
-    << → Left shift
-    >> → Right shift  
-    File Test Operators
+         >Bitwise Operators
+             & → Bitwise AND
+            | → Bitwise OR
+            ^ → Bitwise XOR
+            ~ → Bitwise NOT
+            << → Left shift
+            >> → Right shift  
+            File Test Operators
     
 
-**tips:
-Use [ ] for POSIX sh-compatible tests.
-Use [[ ]] in Bash/Ksh/Zsh for extended tests (safer for strings with spaces, and supports <, >).
-Use (( )) for arithmetic.
-    
+        **tips:
+        Use [ ] for POSIX sh-compatible tests.
+        Use [[ ]] in Bash/Ksh/Zsh for extended tests (safer for strings with spaces, and supports <, >).
+        Use (( )) for arithmetic.
+            
 
-#positional Parameters :
-arguments passed to script are processed in the same order in which they're sent
-the indexing of arguments starts at 1
+###positional Parameters :
+        arguments passed to script are processed in the same order in which they're sent
+        the indexing of arguments starts at 1
 
-for example :
-[make a file]
-vim ss.sh
-[then inside the file ]
-user_group=$1  {this is positional parameter which start with 1...it will provide value to your bash script}
-if ["$user_group"=="parija" ]
-then 
-echo "configure the server"
-elif ["$user_group"=="admin" ]
-then 
-echo "admininster the server"
-else
-echo "no permission to configure server"
-fi
+        for example :
+        [make a file]
+        vim ss.sh
+        [then inside the file ]
+        user_group=$1  {this is positional parameter which start with 1...it will provide value to your bash script}
+        if ["$user_group"=="parija" ]
+        then 
+        echo "configure the server"
+        elif ["$user_group"=="admin" ]
+        then 
+        echo "admininster the server"
+        else
+        echo "no permission to configure server"
+        fi
 
-* if we use $* then we can add multiple parameters like :
-echo "user $1" {takes one parameter}
-echo "user $*" {takes multiple}
-*$# tells the total no. of parameters provided:
-example:
-echo "all params: $*"
-echo "number of params: $#"
-echo "user $1"
-echo "user $2"
+        * if we use $* then we can add multiple parameters like :
+        echo "user $1" {takes one parameter}
+        echo "user $*" {takes multiple}
+        *$# tells the total no. of parameters provided:
+        example:
+        echo "all params: $*"
+        echo "number of params: $#"
+        echo "user $1"
+        echo "user $2"
 
-#loops in linux:
-- while
-- for
-- until
-- select
+###loops in linux:
+        - while
+        - for
+        - until
+        - select
 
-for loop :
+        for loop :
 
-for param in $*
- do 
-  echo $param
- done
+        for param in $*
+         do 
+          echo $param
+         done
 
-example 
-echo "params $*"
-echo "no of params $#"
+        example 
+        echo "params $*"
+        echo "no of params $#"
 
-for param in $*
- do 
-  echo $param
- done
- 
- 
-for paran in  $*
-do 
-if[ -d "$param" ]
-then 
-echo"message"
-fi
-echo $param
-done
+        for param in $*
+         do 
+          echo $param
+         done
+         
+         
+        for paran in  $*
+        do 
+        if[ -d "$param" ]
+        then 
+        echo"message"
+        fi
+        echo $param
+        done
 
-#while loop:
+        #while loop:
 
-sum=0
-while condition 
-do 
-read -p "enter a score" score
-if [$score =="q"]
-then 
-break
-sum = (($sum+$score))
-echo "total score: $sum"
-done 
- 
-#Arrays:
-arrays can be formed like :
-myArray= (1 2 Hello "Hey man")
+        sum=0
+        while condition 
+        do 
+        read -p "enter a score" score
+        if [$score =="q"]
+        then 
+        break
+        sum = (($sum+$score))
+        echo "total score: $sum"
+        done 
 
+###functions:
+        enable you to break down overall functionality of a script into smaller , logical code blocks
 
+        for example:
 
-#functions:
-enable you to break down overall functionality of a script into smaller , logical code blocks
+        function score_sum{
+        sum = 0 
+        while true 
+        do 
+        read -p "enter the score " score 
+        if[ "$score" == "q"]
+        then
+        break
+        fi
+        sum = $(($sum + $score))
+        echo "$total score: $sum"
+        done
+        }
 
-for example:
+        score_sum
 
-function score_sum{
-sum = 0 
-while true 
-do 
-read -p "enter the score " score 
-if[ "$score" == "q"]
-then
-break
-fi
-sum = $(($sum + $score))
-echo "$total score: $sum"
-done
-}
+        [this how we have to call the function]
+         
+         example2:
+         create_file() {
+                filename=$1
+                touch "$filename"
+                echo "file $filename" is saved
+        }
+        create_file test.txt
+        create_file myfile.yaml
+        create_file yolo.sh
 
-score_sum
+        example 3 : write a function to tell if the file is a shell script or not
+        create_file(){
+        file_name=$1
+        is_shell_script=$2
+        touch $file_name
+        echo "file $file_name created"
+        if[ is_shell_script = true ]
+        then 
+        chmod u+x $file_name
+        fi
+        }
+        create_file myscript.sh true
 
-[this how we have to call the function]
- 
- example2:
- create_file() {
-        filename=$1
-        touch "$filename"
-        echo "file $filename" is saved
-}
-create_file test.txt
-create_file myfile.yaml
-create_file yolo.sh
+        #return values in function 
+        systax :
+        return sum
+        [sum calculated by function]
 
-example 3 : write a function to tell if the file is a shell script or not
-create_file(){
-file_name=$1
-is_shell_script=$2
-touch $file_name
-echo "file $file_name created"
-if[ is_shell_script = true ]
-then 
-chmod u+x $file_name
-fi
-}
-create_file myscript.sh true
-
-#return values in function 
-systax :
-return sum
-[sum calculated by function]
-
-function sum() {
-total=$(($1+$2))
-return $total
-}
-sum 2 10
-result=$?
-echo "sum : $result"
-#Best practices are :
-to not use too much parameters 
-function should only do one thing 
+        function sum() {
+        total=$(($1+$2))
+        return $total
+        }
+        sum 2 10
+        result=$?
+        echo "sum : $result"
+        #Best practices are :
+        to not use too much parameters 
+        function should only do one thing 
 
 
+        ###Log Management in Linux
+        Linux log files are records of system activities. It contains information about processes, errors, and events. 
 
 
+###How to View Linux Logs?
+
+            First, let’s switch to the directory where you can find Linux system logs with the command cd /var/log. Then, you can type ls to see the logs stored under this directory. One of the most important logs to view is the syslog, which logs everything but auth-related messages.
+
+        Issue the command vi syslog to view everything under the syslog. 
+        You can use Shift+G to get to the end of the file, denoted by “END.”
+
+        You can also view logs via dmesg, which prints the kernel ring buffer and sends you to the end of the file. From there, you can use the command dmesg | less to scroll through the output. 
 
 
+        For a specific number of lines (for example, the last 5 lines), key in tail -f -n 5 /var/log/syslog, which prints the most recent 5 lines. Once a new line comes, the old one gets removed. To escape the tail command, press Ctrl+X.
 
+        Log Management Tools in Linux
 
+        In Linux, log management is a process of gathering, storing, analyzing, and even rotating (wiping out old logs). Some of the important tools for managing logs in Linux include:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            syslog: A standard for logging system messages.
+            rsyslog: An enhanced version of syslog, offering more features.
+            journald: Part of systemd, used to manage logs in modern Linux systems.
+            logrotate: A tool for managing log file rotation, compression, and archiving.
 
 
 
