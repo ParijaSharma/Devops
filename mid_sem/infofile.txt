@@ -1,0 +1,70 @@
+------Disk usage-----
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.5G  3.0M  1.5G   1% /run
+/dev/nvme0n1p5   58G   23G   33G  41% /
+tmpfs           7.5G   20M  7.5G   1% /dev/shm
+tmpfs           5.0M   12K  5.0M   1% /run/lock
+efivarfs        118K   56K   58K  49% /sys/firmware/efi/efivars
+/dev/nvme0n1p1  256M   46M  211M  18% /boot/efi
+tmpfs           1.5G  2.7M  1.5G   1% /run/user/1000
+------Memory info-----
+               total        used        free      shared  buff/cache   available
+Mem:           15340        4305        7086         145        3912       11035
+Swap:           4095           0        4095
+Total:         19436        4305       11182
+------cpu info--------
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           48 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  12
+On-line CPU(s) list:                     0-11
+Vendor ID:                               AuthenticAMD
+Model name:                              AMD Ryzen 5 7530U with Radeon Graphics
+CPU family:                              25
+Model:                                   80
+Thread(s) per core:                      2
+Core(s) per socket:                      6
+Socket(s):                               1
+Stepping:                                0
+Frequency boost:                         enabled
+CPU(s) scaling MHz:                      42%
+CPU max MHz:                             4390.0000
+CPU min MHz:                             400.0000
+BogoMIPS:                                4591.41
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca fsrm debug_swap
+Virtualization:                          AMD-V
+L1d cache:                               192 KiB (6 instances)
+L1i cache:                               192 KiB (6 instances)
+L2 cache:                                3 MiB (6 instances)
+L3 cache:                                16 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-11
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Mitigation; Safe RET
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsx async abort:           Not affected
+Top 5 memory-consuming processes
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+parija      6314  6.8  4.7 12289504 738592 ?     Sl   08:34   9:41 /snap/firefox/6966/usr/lib/firefox/firefox
+parija      7117  1.4  3.8 3063504 601148 ?      Sl   08:34   2:02 /snap/firefox/6966/usr/lib/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:43762 -prefMapHandle 1:274249 -jsInitHandle 2:223368 -parentBuildID 20251003234612 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {0b86db4b-73e1-44e0-b721-d05777194e2d} -parentPid 6314 -crashReporter 6 -crashHelper 7 -greomni /snap/firefox/6966/usr/lib/firefox/omni.ja -appomni /snap/firefox/6966/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/6966/usr/lib/firefox/browser 7 tab
+parija     12500  0.9  2.6 2906680 424132 ?      Sl   09:51   0:37 /snap/firefox/6966/usr/lib/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:43924 -prefMapHandle 1:274249 -jsInitHandle 2:223368 -parentBuildID 20251003234612 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {72e4dc49-8385-44aa-a041-e8a614f84873} -parentPid 6314 -crashReporter 6 -crashHelper 7 -greomni /snap/firefox/6966/usr/lib/firefox/omni.ja -appomni /snap/firefox/6966/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/6966/usr/lib/firefox/browser 80 tab
+parija      3073  4.1  2.5 5877612 408276 ?      Ssl  07:34   8:22 /usr/bin/gnome-shell
+Top 5 cpu-consuming processes
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+parija      8103 11.6  2.2 60222068 347944 ?     Sl   08:34  16:19 /snap/onlyoffice-desktopeditors/655/opt/onlyoffice/desktopeditors/editors_helper --type=zygote --no-sandbox --force-device-scale-factor=1 --log-severity=disable --user-agent-product=Chrome/109.0.0.0 AscDesktopEditor/9.0.4.50 --lang=en-US --user-data-dir=/home/parija/snap/onlyoffice-desktopeditors/655/.local/share/onlyoffice/desktopeditors/data/cache --log-file=/home/parija/snap/onlyoffice-desktopeditors/655/.local/share/onlyoffice/desktopeditors/data/cache/log.log
+parija      6314  6.8  4.7 12289504 738592 ?     Sl   08:34   9:41 /snap/firefox/6966/usr/lib/firefox/firefox
+parija      7834  4.4  1.6 3041852 259344 ?      Sl   08:34   6:16 ./DesktopEditors /home/parija/Downloads/Shell Scripting Task.docx
+parija      3073  4.1  2.5 5877612 408276 ?      Ssl  07:34   8:22 /usr/bin/gnome-shell
