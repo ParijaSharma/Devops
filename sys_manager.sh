@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "--------SYSTEM MANAGER--------"
 add_users(){
-if [ "$#" -ne 2 ] 
+if [ "$@" -ne 2 ] 
 then
     echo "usage:$0 add_users <usernames_file>"
     exit 1
@@ -29,7 +29,7 @@ echo "----------------------------"
 }
 
 setup_projects(){
-if [ "$#" -lt 2 ]
+if [ "$@" -lt 2 ]
 	then 
 		echo "usage:$0 setup_projects <username> <number_of_projects>"
 		exit 1
@@ -69,7 +69,7 @@ done
 }
 
 sys_report(){
-if [ "$#" -eq 0 ]
+if [ "$@" -eq 0 ]
 then
        echo "usage:$0 sys_report <output_file>"
        exit 1
@@ -100,7 +100,7 @@ ps aux --sort=-%cpu | head -n 5
 process_manage(){
 	echo " list of actions are :list_zombies ,list_stopped ,kill_zombies ,kill_stopped "
 
-if [ "$#" -eq 0 ] || [ "$#" -lt 2 ]
+if [ "$@" -eq 0 ] || [ "$@" -lt 2 ]
 then
        echo "usage:$0 process_manage <username> <action>"
        exit 1
@@ -134,7 +134,7 @@ permissions=$3
 owner=$4
 group=$5
 
-if [ "$#" -ne 5 ]
+if [ "$@" -ne 5 ]
 then 
        echo "usage:$0 perm_owner <username> <path> <permissions> <owner> <group>"
 fi
