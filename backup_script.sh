@@ -18,7 +18,7 @@ else
 	mkdir -p "$sourcedir"
 fi
 
-backupfolder=/var/lib/jenkins/workspace/project-3/backups
+backupfolder="$WORKSPACE/backups"
 
 if [ ! -d "$backupfolder" ]; then
 	echo "creating backup folder...."
