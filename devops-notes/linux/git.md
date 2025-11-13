@@ -1,4 +1,4 @@
-#what is version control?
+# what is version control?
     developers workings on the same code 
     code is hosted centrally on the internet
     every developer has an entire copy of the code locally 
@@ -14,7 +14,7 @@
     -> you can revert commits 
     -> each change labeled with commit message
 
-#Basics of Git:
+# Basics of Git:
 
 gits has multiple parts:
 - Remote Git Repository: where the code lives 
