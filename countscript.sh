@@ -1,5 +1,5 @@
 #!/bin/sh
-logfile="/home/parija/script.log"
+logfile="$WORKSPACE/script.log"
 datetime=$(date "+Y-%m-%d %H:%M:%S")
 echo " this will tell you the number of times this script executes "
 echo "------------------------------------------------------------"
