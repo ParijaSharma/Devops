@@ -89,6 +89,116 @@ git restore <file_path> # To discard changes in the working directory
 
 so basically added some line and then staged it so git restore --staged will remove it from staging area to modified area and then we can simply restore the changes
 
+Case3: Added changes to staging area (didn't commit) after this added more changes to file
+//To get the staged changes
+git restore --worktree index.html
+
+         echo "my age is 234 " >> myfile.txt
+        parija@parisUbuntu:~/gitrepo$ cat myfile.txt
+        hello this for practice
+        my age is 234 
+        parija@parisUbuntu:~/gitrepo$ git add myfile.txt
+        parija@parisUbuntu:~/gitrepo$ git status
+        On branch master
+        Changes to be committed:
+          (use "git restore --staged <file>..." to unstage)
+	        modified:   myfile.txt
+
+        parija@parisUbuntu:~/gitrepo$ echo "that age is not my real age " >> myfile.txt
+        parija@parisUbuntu:~/gitrepo$ cat myfile.txt
+        hello this for practice
+        my age is 234 
+        that age is not my real age 
+        parija@parisUbuntu:~/gitrepo$ git status
+        On branch master
+        Changes to be committed:
+          (use "git restore --staged <file>..." to unstage)
+	        modified:   myfile.txt
+
+        Changes not staged for commit:
+          (use "git add <file>..." to update what will be committed)
+          (use "git restore <file>..." to discard changes in working directory)
+	        modified:   myfile.txt
+	        
+	    parija@parisUbuntu:~/gitrepo$ git restore --worktree myfile.txt
+        parija@parisUbuntu:~/gitrepo$ cat myfile.txt
+        hello this for practice
+        my age is 234 
+
+	        
+
+Case4: How about if we did commit also wrong files
+git reset --soft HEAD^ (uncommit and keep the changes)
+git reset --hard HEAD^ (uncommit and discard the changes)
+
+        echo "that age is not my real age " >> myfile.txt
+        parija@parisUbuntu:~/gitrepo$ git add myfile.txt
+        parija@parisUbuntu:~/gitrepo$ git commit -m "by mistake"
+        [master 9cfdef7] by mistake
+         1 file changed, 2 insertions(+)
+        parija@parisUbuntu:~/gitrepo$ git status
+        On branch master
+        nothing to commit, working tree clean
+        parija@parisUbuntu:~/gitrepo$ git log
+        commit 9cfdef7e69058774445c5599f0d24e52d9372c01 (HEAD -> master)
+        Author: ParijaSharma <parija.sharma16@gmail.com>
+        Date:   Thu Nov 13 19:14:37 2025 +0530
+
+            by mistake
+
+        commit f2ce1dfe7b1ccbf5fc70d9e3c9e1e5f2315ba880
+        Author: ParijaSharma <parija.sharma16@gmail.com>
+        Date:   Thu Nov 13 18:16:56 2025 +0530
+
+            this is my 2nd commit
+
+        commit c977c97d5f17876b9b9af9a70346eb5e9b989861
+        Author: ParijaSharma <parija.sharma16@gmail.com>
+        Date:   Thu Nov 6 01:06:49 2025 +0530
+
+            thi is a file
+      
+        parija@parisUbuntu:~/gitrepo$ git reset --soft HEAD~1
+        parija@parisUbuntu:~/gitrepo$ cat myfile.txt
+        hello this for practice
+        my age is 234 
+        that age is not my real age 
+        parija@parisUbuntu:~/gitrepo$ git log
+        commit f2ce1dfe7b1ccbf5fc70d9e3c9e1e5f2315ba880 (HEAD -> master)
+        Author: ParijaSharma <parija.sharma16@gmail.com>
+        Date:   Thu Nov 13 18:16:56 2025 +0530
+
+            this is my 2nd commit
+
+        commit c977c97d5f17876b9b9af9a70346eb5e9b989861
+        Author: ParijaSharma <parija.sharma16@gmail.com>
+        Date:   Thu Nov 6 01:06:49 2025 +0530
+
+            thi is a file
+
+# Useful Log Options
+
+        git log -p -2   (last two commit with diff)
+
+        git log --stat (summary of changes)
+
+        git log --pretty=oneline
+
+        git log --pretty=format:"%h - %an, %ar : %s"
+
+        git log -S function_name
+        
+        git log --grep="fix bug"  (search commit msg)
+
+        git log --since="2024-01-01"
+
+        git log --until="2024-01-01"
+
+        git log --author="Paul"
+
+        git log --no-merges
+
+
 # LOCAL REPOSITORY:
 git client needs to be connectedgit config --list with remote platform
 need to authenticate to github
